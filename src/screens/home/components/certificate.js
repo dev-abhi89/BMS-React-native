@@ -4,7 +4,7 @@ import uuid,{v1 as uuidv1} from 'uuid';
 import auth from '@react-native-firebase/auth';
 
 import React,{useState} from 'react'
-import { View,StyleSheet,Text,Image} from 'react-native'
+import { View,StyleSheet,Text,Image,ToastAndroid} from 'react-native'
 import DatabaseServices from "../../../services/database_service";
 import { Button, Colors, IconButton } from "react-native-paper";
 
@@ -32,7 +32,9 @@ catch(e){
 const uploadfunc = async(img)=>{
     const imName =auth().currentUser.uid;
     var flag=1;
+    ToastAndroid.show('Uploading image!',2000)
     const ref = storage().ref().child('certificates').child(`${imName}.jpg`);
+
    await ref.putFile(img).catch((e)=>{
         flag=2;
         console.log(e);
@@ -59,7 +61,7 @@ const uploadfunc = async(img)=>{
         <View style={style.box}>
           <View style={{marginHorizontal:18,fexDirection:'row',justifyContent:'space-between'}}>
               <Text style={style.txt}>Certificate Section</Text>
-              <IconButton icon="pencil" size={28} color='#ff9551' onPress={()=>{imgPicker();}} style={{position:'absolute',bottom:5,right:5,backgroundColor:'#ffdfca'}}/>
+              <IconButton  icon="pencil" size={28} color='#ff9551' onPress={()=>{imgPicker();}} style={{position:'absolute',bottom:5,right:5,backgroundColor:'#ffdfca'}}/>
 
               </View>  
             
@@ -77,7 +79,8 @@ const uploadfunc = async(img)=>{
 const style = StyleSheet.create({
 
 btn:{width:200,
-     alignSelf:'center'},
+     alignSelf:'center',
+    backgroundColor:'#ff9551'},
 img:{ height: 300,
     margin:10,
     borderRadius:8},
