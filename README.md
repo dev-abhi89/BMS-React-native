@@ -1,4 +1,4 @@
-## vaccine-tracker-react-native
+## Bus-Management-System-react-native
 
 it help you to track your vaccine credentials with certificate
 
@@ -7,6 +7,8 @@ it help you to track your vaccine credentials with certificate
 - realtime data changes
 - cloud storage for uploading your certificate
 - get your certificate at any time
+- realTime location
+
 
 ### lib/api i use
 - firebase auth
@@ -16,3 +18,5 @@ it help you to track your vaccine credentials with certificate
 - material UI
 -ImagePicker
 - firebase cloud storage
+- google maps apis
+- pub/sub struture
